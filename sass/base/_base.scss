@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /*we make the all element inherit  box-sizing: border-box; */
+}
+html {
+  font-size: 62.5%; /*16 px is the default font size by browser 62.5% is 10 px*/
+
+  //   I have to tell you something man and you should  kept in your head
+  // 1- when we used percetage %% in child font-size => x% * parents font-size
+  // and padding margin => x% * parents width
+  // 2- as for rem alwayse  => xrem * parents font-size
+  @include respond(tab-land) { // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+}
+
+@include respond(tab-port) { // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+}
+
+@include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+}
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+      padding: 0;
+  }
+  /*the padding and margin its no more added to height and width
+    width + padding + border = actual width of an element
+    height + padding + border = actual height of an element*/
+}
